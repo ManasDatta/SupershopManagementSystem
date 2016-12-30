@@ -1,0 +1,21 @@
+﻿@model SMSDataLayer.Admin
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+<strong>Login ID : </strong>
+@Html.Label(Session["ADMINID"].ToString())
+<br /><br />
+<pre>
+    @Html.ActionLink("Admin", "Index")
+    @Html.ActionLink("Salesman", "Index", "Salesmen")
+    @Html.ActionLink("Category", "Index", "Categories")
+    @Html.ActionLink("Product", "Index", "Products")
+    @Html.ActionLink("User", "Index", "Users")
+    @Html.ActionLink("Record", "Record")
+    @Html.ActionLink("Profile","Details")
+    @Html.ActionLink("Logout","Logout")
+</pre>
+

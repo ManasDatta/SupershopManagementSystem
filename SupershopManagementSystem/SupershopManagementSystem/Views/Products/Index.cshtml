@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SMSDataLayer.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Back To Home", "Home", "Admins")
+</p>
+
+@using (Html.BeginForm())
+{
+    <strong>Total Item Found: @Model.Count()</strong>
+}
+
+
+@using (@Html.BeginForm("Index", "Products", FormMethod.Get))
+{
+    <center>
+        <div class="form-group">
+            <table align="center" style="text-align:center">
+                <tr>
+                    <td>
+                        <b>Search By:</b>
+                        @Html.RadioButton("searchBy", "Pname", true) <text>Product Name</text>
+                        @Html.RadioButton("searchBy", "Cname") <text>Category Name</text><br />
+                    </td>
+                    <td>
+                        <input name="search" type="text" placeholder="Product/Category Name" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </center>
+
+    //@Html.TextBox("search") <input type="submit" value="Search"/>
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">
+            No records match search criteria
+        </td>
+    </tr>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+}
+
+</table>

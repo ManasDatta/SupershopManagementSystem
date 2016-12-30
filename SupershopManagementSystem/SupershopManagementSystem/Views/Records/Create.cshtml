@@ -1,0 +1,162 @@
+﻿@model SMSDataLayer.Record
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Record</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SalesmanId, "SalesmanId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SalesmanId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SalesmanId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InvoiceDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InvoiceDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @*Invoice cahtml file add kora ase ekhane suru*@
+
+        <center>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <hr></hr>
+                    <h4>Products Details</h4>
+                    <hr></hr>
+                    <table align="center" style="text-align:center">
+                        <tr>
+                            <td>
+                                <input id="productId" type="text" placeholder="Product Id" class="form-control" onchange="myFunction()"/>
+                                <span class="error">Product Id required</span>
+                            </td>
+                            <td>
+                                <input id="quantity" type="text" placeholder="Quantity" class="form-control" />
+                                <span class="error">Valid quantity required</span>
+                            </td>
+                            <td>
+                                <input id="itemName" type="text" placeholder="Item Name" class="form-control" />
+                                <span class="error">Item name required</span>
+                            </td>
+
+                            <td>
+                                <input id="rate" type="text" placeholder="Unit Price" class="form-control" />
+                                <span class="error">Valid rate required</span>
+                            </td>
+                            <td>
+                                <input id="add" type="button" value="Add" class="btn btn-default" />
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="orderItems" class="tablecontainer"></div>
+                    <hr></hr>
+                </div>
+                
+            </div>
+
+            
+        </center>
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+        <style>
+            /*Adding some css for looks good*/
+            span.error {
+                display: block;
+                visibility: hidden;
+                color: red;
+                font-size: 90%;
+            }
+
+
+            /*css for table*/
+            .container td {
+                vertical-align: top;
+            }
+
+            .tablecontainer table {
+                width: 85%;
+                border-collapse: collapse;
+                border-top: 1px solid #BFAEAE;
+                border-right: 1px solid #BFAEAE;
+            }
+
+            .tablecontainer th {
+                border-bottom: 2px solid #BFAEAE !important;
+            }
+
+            .tablecontainer th, .tablecontainer td {
+                text-align: right;
+                border-left: 1px solid #BFAEAE;
+                padding: 5px;
+                border-bottom: 1px solid #BFAEAE;
+            }
+
+            .ui-widget {
+                font-size: 12px !important;
+            }
+        </style>
+
+
+
+        @*Invoice cahtml file add kora ase ekhane sesh*@
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InvoiceTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InvoiceTotal, new { htmlAttributes = new { @class = "form-control" , @id = "t"} })
+                @Html.ValidationMessageFor(model => model.InvoiceTotal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+  function myFunction()
+  {
+     // var objConnection = new ActiveXObject("SMSDB.connection");
+     // var strConn = "driver={sql server};server=DESKTOP-3QFUJ09\SQLEXPRESS;database=SMSDB;uid=SA;password=Manas13241642";
+   //   objConnection.Open(strConn);
+      //var rs = new ActiveXObject("SMSDB.Recordset");
+    //  var x = document.getElementById('productId').value;
+//var strQuery1 = "SELECT ProductName FROM Products WHERE ProductId=1";
+    //  var strQuery2 = "SELECT ProductPrice FROM Products WHERE ProductId='x'";
+     // rs.Open(strQuery1, objConnection);
+    //  rs.Open(strQuery2, objConnection);
+
+    //var x = document.getElementById('productId').value;//get integer part of value
+    //document.getElementById('itemName').value = x;
+    //document.getElementById('rate').value = x;
+
+  }
+</script>

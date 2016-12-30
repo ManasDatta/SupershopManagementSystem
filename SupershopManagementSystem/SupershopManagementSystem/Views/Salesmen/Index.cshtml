@@ -1,0 +1,113 @@
+﻿@model IEnumerable<SMSDataLayer.Salesman>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Back To Home", "Home", "Admins")
+</p>
+
+@using (Html.BeginForm())
+{
+    <strong>Total Item Found: @Model.Count()</strong>
+}
+
+@using (@Html.BeginForm("Index", "Salesmen", FormMethod.Get))
+{
+    <center>
+        <div class="form-group">
+            <table align="center" style="text-align:center">
+                <tr>
+                    <td>
+                        <input name="search" type="text" placeholder="Salesman Name" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </center>
+
+    //@Html.TextBox("search") <input type="submit" value="Search"/>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanDOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanJoiningDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesmanPassword)
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">
+            No records match search criteria
+        </td>
+    </tr>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanDOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanJoiningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesmanPassword)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.SalesmanId })
+            </td>
+        </tr>
+    }
+}
+</table>

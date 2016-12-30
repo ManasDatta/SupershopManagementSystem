@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SMSDataLayer.Admin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Back To Home", "Home")
+</p>
+
+@using (Html.BeginForm())
+{
+    <strong>Total Item Found: @Model.Count()</strong>
+}
+
+@using (@Html.BeginForm("Index", "Admins", FormMethod.Get))
+{
+    <center>
+        <div class="form-group">
+            <table align="center" style="text-align:center">
+                <tr>
+                    <td>
+                        <input name="search" type="text" placeholder="Admin Name" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </center>
+
+    //@Html.TextBox("search") <input type="submit" value="Search"/>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminDOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminPassword)
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">
+            No records match search criteria
+        </td>
+    </tr>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminDOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminPassword)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.AdminId })
+            </td>
+        </tr>
+    }
+}
+</table>

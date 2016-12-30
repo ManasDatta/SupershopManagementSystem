@@ -1,0 +1,66 @@
+﻿@model SMSDataLayer.Admin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Admin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminDOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminDOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AdminId }) |
+    @Html.ActionLink("Back to Home", "Home")
+</p>

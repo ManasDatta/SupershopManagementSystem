@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+<strong>Login ID : </strong>
+@Html.Label(Session["SALESMANID"].ToString())
+<br /><br />
+<pre>
+    @Html.ActionLink("Product", "Product")
+    @Html.ActionLink("Invoice", "Index","Records")
+    @Html.ActionLink("Profile", "Details")
+    @Html.ActionLink("Logout", "Logout")
+</pre>

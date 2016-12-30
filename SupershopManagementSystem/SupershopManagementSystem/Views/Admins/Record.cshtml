@@ -1,0 +1,81 @@
+﻿@model IEnumerable<SMSDataLayer.Record>
+
+@{
+    ViewBag.Title = "Record";
+}
+
+<h2>Record</h2>
+<p>
+    @Html.ActionLink("Back To Home", "Home")
+</p>
+
+@using (Html.BeginForm())
+{
+    <strong>Total Item Found: @Model.Count()</strong>
+}
+
+@using (@Html.BeginForm("Record", "Admins", FormMethod.Get))
+{
+    <center>
+        <div class="form-group">
+            <table align="center" style="text-align:center">
+                <tr>
+                    <td>
+                        <b>Search By:</b>
+                        @Html.RadioButton("searchBy", "Name", true) <text>Salesman Name</text>
+                        @Html.RadioButton("searchBy", "Date") <text>Invoice Date</text><br />
+                    </td>
+                    <td>
+                        <input name="search" type="text" placeholder="Admin Name" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </center>
+
+    //@Html.TextBox("search") <input type="submit" value="Search"/>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Salesman.SalesmanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceTotal)
+        </th>
+    </tr>
+
+@if (Model.Count() == 0)
+{
+    <tr>
+        <td colspan="4">
+            No records match search criteria
+        </td>
+    </tr>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salesman.SalesmanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceTotal)
+            </td>
+        </tr>
+    }
+}
+</table>

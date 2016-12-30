@@ -1,0 +1,82 @@
+﻿@model SMSDataLayer.Salesman
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Salesman</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanDOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanDOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanJoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanJoiningDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanSalary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanSalary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesmanPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesmanPassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalesmanId }) |
+    @Html.ActionLink("Back to Home", "Home")
+</p>
