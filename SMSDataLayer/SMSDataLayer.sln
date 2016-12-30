@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSDataLayer", "SMSDataLayer\SMSDataLayer.csproj", "{170E4557-B3BB-47B3-8684-BB4503ABCB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupershopManagementSystem", "..\SupershopManagementSystem\SupershopManagementSystem\SupershopManagementSystem\SupershopManagementSystem.csproj", "{D15CAEAB-702F-46DA-956D-9196374CA2CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{170E4557-B3BB-47B3-8684-BB4503ABCB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170E4557-B3BB-47B3-8684-BB4503ABCB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170E4557-B3BB-47B3-8684-BB4503ABCB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170E4557-B3BB-47B3-8684-BB4503ABCB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15CAEAB-702F-46DA-956D-9196374CA2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D15CAEAB-702F-46DA-956D-9196374CA2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D15CAEAB-702F-46DA-956D-9196374CA2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D15CAEAB-702F-46DA-956D-9196374CA2CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
